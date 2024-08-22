@@ -25,9 +25,11 @@ public class DoctorController {
 
     @GetMapping("/doctores")
     public String getAllDoctors(@RequestParam(value= "especialidadId", required=false) Integer especialidadId, Model model) {
+        System.out.println("Especialidad ID: " + especialidadId);
         List<Doctor> doctores;
-        if(especialidadId != null && !especialidadId.toString().isEmpty()) {
+        if(especialidadId != null) {
             doctores = doctorService.findDoctorByEspecialidad(especialidadService.getById(especialidadId));
+            model.addAttribute("doctores", doctores);
         } else {
             doctores = doctorCrudService.getAll();
         }

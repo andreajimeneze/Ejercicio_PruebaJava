@@ -20,10 +20,11 @@
     <form th:action="@{/doctor/doctores}" th:method="get">
         <div class="d-flex bi-justify-right mb-3">
             <select name="especialidadId" onchange="this.form.submit()" >
-                <option value="">Todas las especialidades</option>
+                <option value="">Seleccione especialidad</option>
                 <option th:each="especialidad : ${especialidades}"
                         th:value="${especialidad.id}"
                         th:text="${especialidad.nombre}"></option>
+                <option th:value="${null}">Todas las especialidades</option>
             </select>
         </div>
     </form>
