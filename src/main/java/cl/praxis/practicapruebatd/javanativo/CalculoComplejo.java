@@ -9,7 +9,7 @@ public class CalculoComplejo implements ICalculoDescuento{
         List<Double> descuentos = new ArrayList<>();
 
         for(Detalle detalle : detalleList) {
-            Double desc = 0.0;
+            double desc = 0.0;
             if(detalle.getExperiencia() < 10) {
                 desc = 0.15;
             } if (detalle.getEspecialidad().equals("cardiología") || detalle.getEspecialidad().equals("neurología")) {

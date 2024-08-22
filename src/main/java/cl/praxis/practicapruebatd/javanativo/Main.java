@@ -6,12 +6,12 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         List<Detalle> detalleList = new ArrayList<>();
-        Detalle detalle1 = new Detalle(33, 10, "cardiología", "mujer");
-        Detalle detalle2 = new Detalle(58, 30, "dermatología", "hombre");
-        Detalle detalle3 = new Detalle(25, 1, "medicina general", "hombre");
-        Detalle detalle4 = new Detalle(65, 33, "dermatología", "mujer");
+        Detalle detalle1 = new Detalle(33, 25, "cardiología", "mujer");
+        Detalle detalle2 = new Detalle(58, 3, "dermatología", "hombre");
+        Detalle detalle3 = new Detalle(25, 4, "medicina general", "hombre");
+        Detalle detalle4 = new Detalle(65, 7, "oncología", "mujer");
         Detalle detalle5 = new Detalle(43, 18, "endocrinología", "mujer");
-        Detalle detalle6 = new Detalle(53, 20, "medicina general", "mujer");
+        Detalle detalle6 = new Detalle(53, 7, "medicina general", "mujer");
 
         detalleList.add(detalle1);
         detalleList.add(detalle2);
