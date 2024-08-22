@@ -24,17 +24,17 @@ public class DoctorController {
     ICrudService<Especialidad> especialidadService;
 
     @GetMapping("/doctores")
-    public String getAllDoctors(@RequestParam(value= "especialidadId", required=false) Integer especialidadId, Model model) {
+    public String listardoctores(@RequestParam(value= "especialidadId", required=false) Integer especialidadId, Model model) {
         System.out.println("Especialidad ID: " + especialidadId);
         List<Doctor> doctores;
         if(especialidadId != null) {
-            doctores = doctorService.findDoctorByEspecialidad(especialidadService.getById(especialidadId));
+            doctores = doctorService.findDoctorByEspecialidad(especialidadService.obtenerPorId(especialidadId));
             model.addAttribute("doctores", doctores);
         } else {
-            doctores = doctorCrudService.getAll();
+            doctores = doctorCrudService.listar();
         }
         model.addAttribute("doctores", doctores);
-        model.addAttribute("especialidades", especialidadService.getAll());
+        model.addAttribute("especialidades", especialidadService.listar());
         return "lista_doctores";
     }
 }

@@ -31,18 +31,18 @@ public class DoctorService implements ICrudService<Doctor>, IDoctorService {
     IHistoriaClinicaRepository historiaRepo;
 
     @Override
-    public List<Doctor> getAll() {
+    public List<Doctor> listar() {
         return doctorRepo.findAll();
     }
 
     @Override
-    public Doctor getById(int id) {
+    public Doctor obtenerPorId(int id) {
         return doctorRepo.findById(id).orElse(null);
     }
 
     @Transactional
     @Override
-    public Doctor create(Doctor doctor) {
+    public Doctor crear(Doctor doctor) {
         Optional<Especialidad> especialidad = especialidadRepo.findById(doctor.getEspecialidad().getId());
         if(especialidad.isPresent()) {
             doctor.setEspecialidad(especialidad.get());
@@ -52,13 +52,13 @@ public class DoctorService implements ICrudService<Doctor>, IDoctorService {
     }
 
     @Override
-    public Doctor update(Doctor doctor) {
+    public Doctor actualizar(Doctor doctor) {
         return doctorRepo.save(doctor);
     }
 
     @Transactional
     @Override
-    public void delete(int id) {
+    public void eliminar(int id) {
         citaRepo.setDoctorToNull(id);
         historiaRepo.setDoctorToNull(id);
 

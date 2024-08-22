@@ -6,9 +6,9 @@ import java.util.List;
 public class CalculoSimple implements ICalculoDescuento {
 
     @Override
-    public List<Double> calculoDescuento(List<Detalle> detalleList) {
+    public List<Double> calculoDescuento(List<Detalle> detalles) {
         List<Double> descuentos = new ArrayList<>();
-        for(Detalle detalle : detalleList) {
+        for(Detalle detalle : detalles) {
             double desc = 0;
             if(detalle.getEdad() <= 5){
                 desc = 0.05;

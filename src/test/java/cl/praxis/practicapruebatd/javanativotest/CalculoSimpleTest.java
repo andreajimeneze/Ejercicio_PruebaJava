@@ -13,7 +13,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculoSimpleTest {
-    public static List<Detalle> detalleList = new ArrayList<>();
+    public static List<Detalle> detalles = new ArrayList<>();
 
     @BeforeEach
 
@@ -26,13 +26,13 @@ public class CalculoSimpleTest {
         Detalle detalle5 = new Detalle(63, 22, "endocrinología", "mujer");
         Detalle detalle6 = new Detalle(66, 7, "medicina general", "hombre");
         Detalle detalle7 = new Detalle(5, 7, "", "hombre");
-        detalleList.addAll(Arrays.asList(detalle1, detalle2, detalle3, detalle4, detalle5, detalle6, detalle7));
+        detalles.addAll(Arrays.asList(detalle1, detalle2, detalle3, detalle4, detalle5, detalle6, detalle7));
     }
 
     @Test
     public void calculoSimpleTest() {
         ICalculoDescuento calculoSimple = new CalculoSimple();
-        List<Double> listaResultado = calculoSimple.calculoDescuento(detalleList);
+        List<Double> listaResultado = calculoSimple.calculoDescuento(detalles);
         List<Double> listaEsperada = Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.05);
 
         assertEquals(listaResultado, listaEsperada);

@@ -13,27 +13,27 @@ public class EspecialidadService implements ICrudService<Especialidad> {
     @Autowired
     IEspecialidadRepository especialidadRepo;
     @Override
-    public List<Especialidad> getAll() {
+    public List<Especialidad> listar() {
         return especialidadRepo.findAll();
     }
 
     @Override
-    public Especialidad getById(int id) {
+    public Especialidad obtenerPorId(int id) {
         return especialidadRepo.findById(id).orElse(null);
     }
 
     @Override
-    public Especialidad create(Especialidad especialidad) {
+    public Especialidad crear(Especialidad especialidad) {
         return especialidadRepo.save(especialidad);
     }
 
     @Override
-    public Especialidad update(Especialidad especialidad) {
+    public Especialidad actualizar(Especialidad especialidad) {
         return especialidadRepo.save(especialidad);
     }
 
     @Override
-    public void delete(int id) {
+    public void eliminar(int id) {
 
     }
 }

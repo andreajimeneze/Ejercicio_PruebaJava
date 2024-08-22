@@ -14,13 +14,13 @@ public class DoctorRestController {
     @Autowired
     ICrudService<Doctor> doctorService;
     @GetMapping("/doctores")
-    public List<Doctor> getAllDoctors() {
-        return doctorService.getAll();
+    public List<Doctor> ListarDoctores() {
+        return doctorService.listar();
     }
 
     @GetMapping("/doctor/{id}")
-    public ResponseEntity<?> getDoctorById(@PathVariable int id) {
-        Doctor doctor = doctorService.getById(id);
+    public ResponseEntity<?> verDoctorPorId(@PathVariable int id) {
+        Doctor doctor = doctorService.obtenerPorId(id);
 
         if (doctor == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -30,13 +30,13 @@ public class DoctorRestController {
     }
 
     @PostMapping("/new/doctor")
-    public Doctor createDoctor(@RequestBody Doctor doctor) {
-        return doctorService.create(doctor);
+    public Doctor crearDoctor(@RequestBody Doctor doctor) {
+        return doctorService.crear(doctor);
     }
 
     @PutMapping("/update/doctor/{id}")
-    public ResponseEntity<?> updateDoctor(@PathVariable int id, @RequestBody Doctor doctor) {
-        Doctor doctorFound = doctorService.getById(id);
+    public ResponseEntity<?> actualizarDoctor(@PathVariable int id, @RequestBody Doctor doctor) {
+        Doctor doctorFound = doctorService.obtenerPorId(id);
 
         if(doctorFound == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -46,12 +46,12 @@ public class DoctorRestController {
         doctorFound.setNombre(doctor.getNombre());
         doctorFound.setEspecialidad(doctor.getEspecialidad());
         doctorFound.setExperiencia(doctor.getExperiencia());
-        doctorService.update(doctorFound);
+        doctorService.actualizar(doctorFound);
         return ResponseEntity.ok(doctorFound);
     }
 
     @DeleteMapping("/delete/doctor/{id}")
-    public void deleteDoctor(@PathVariable int id) {
-        doctorService.delete(id);
+    public void eliminarDoctor(@PathVariable int id) {
+        doctorService.eliminar(id);
     }
 }
